@@ -21,7 +21,7 @@ func newHHTTPClient() *http.Client {
 }
 
 // AllRequest ...
-func AllRequest(getReq func() (*http.Request, error), callback func(resp *http.Response) (bool, error)) error {
+func AllRequest(getReq GetRequest, callback HandleResponse) error {
 	for {
 		//创建http请求
 		req, err := getReq()
